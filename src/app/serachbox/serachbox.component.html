@@ -1,0 +1,14 @@
+<div class="field">
+  <div class="ui search">
+    <form (submit)="serach_f($event)" class="ui fluid icon input">
+      <input
+        class="prompt"
+        type="text"
+        placeholder="Search ..."
+        (input)="term = $event.target.value"
+      />
+      <i class="search icon"></i>
+    </form>
+    <div class="results"></div>
+  </div>
+</div>

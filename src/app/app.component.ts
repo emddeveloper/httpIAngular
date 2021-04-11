@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
+import { WikipediaService } from './wikipedia.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'httpPOC';
+  constructor(private wiki: WikipediaService) {}
+  pages = '';
+  searchEmit_f(value: string) {
+    this.wiki.search(value).subscribe((response: any) => {
+      this.pages = response.query.search;
+    });
+  }
 }
