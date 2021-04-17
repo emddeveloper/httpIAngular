@@ -8,10 +8,10 @@ import { WikipediaService } from './wikipedia.service';
 })
 export class AppComponent {
   constructor(private wiki: WikipediaService) {}
-  pages = '';
+  pages = {};
   searchEmit_f(value: string) {
-    this.wiki.search(value).subscribe((response: any) => {
-      this.pages = response.query.search;
+    this.wiki.search(value).subscribe((response) => {
+      this.pages = response;
     });
   }
 }
